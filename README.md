@@ -1,6 +1,6 @@
 
 # ScalpMeNot 
-## Smart Contract based off of Blind Auction Solidity Example
+## Smart Contract based on Blind Auction example
 
 
 
