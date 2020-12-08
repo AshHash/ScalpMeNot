@@ -24,6 +24,7 @@ contract ScalpMeNot {
     uint [] public highestBids;
     mapping(address => uint) highestBidsMap;
     address public lowestHighBidder;
+    uint public lowestHighBid;
 
     // Defines pendingReturns with key of address and value of uint
     mapping(address => uint) pendingReturns;
@@ -66,7 +67,7 @@ contract ScalpMeNot {
         bids[msg.sender].push(Bid({
             blindedBid: _blindedBid,
             deposit: msg.value
-        }))
+        }));
     }
 
     /// Reveal your blinded bids. You will get a refund for all
@@ -135,7 +136,7 @@ contract ScalpMeNot {
                 lowestHighBid = value;
                 for (uint i = 0; i < totalWinners; i++) {
                     if (highestBidders[i] == lowestHighBidder) {
-                        pendingReturns[highestBidders[i] += highestBidsMap[highestBidders[i]]];
+                        pendingReturns[highestBidders[i]] += highestBidsMap[highestBidders[i]];
                         highestBidders[i] = bidder;
                     }
                     if (highestBidsMap[highestBidders[i]] < lowestHighBid) {
@@ -169,10 +170,8 @@ contract ScalpMeNot {
     {
         require(!ended);
         for(uint i = 0; i < totalWinners; i++) {
-            highestBidder = highestBidders[i];
-            highestBid = highestBidsMap[highestBidder];
-            emit AuctionEnded(highestBidder, highestBid);
-            vendor.transfer(highestBid);
+            emit AuctionEnded(highestBidders[i], highestBidsMap[highestBidders[i]]);
+            vendor.transfer(highestBidsMap[highestBidders[i]]);
         }
         ended = true;
     }
