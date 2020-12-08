@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.4.0 <0.7.0;
 
 contract ScalpMeNot {
@@ -169,7 +170,7 @@ contract ScalpMeNot {
         onlyAfter(revealEnd)
     {
         require(!ended);
-        for(uint i = 0; i < totalWinners; i++) {
+        for (uint i = 0; i < totalWinners; i++) {
             emit AuctionEnded(highestBidders[i], highestBidsMap[highestBidders[i]]);
             vendor.transfer(highestBidsMap[highestBidders[i]]);
         }
