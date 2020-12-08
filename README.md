@@ -1,4 +1,3 @@
-
 # ScalpMeNot 
 ## Smart Contract based on Blind Auction example
 
@@ -13,7 +12,13 @@ sense skip the line if they are willing to pay more and companies to maximize th
 This contract will handle the auction of the item and transactions associated with the auction.
 We will be modifying the smart contract provided in the [example](https://docs.soliditylang.org/en/v0.5.13/solidity-by-example.html#id2) provided in Solidity's documentation, to account for multiple winners of a blind auction.
 
+### Individual Work Breakdown
 
 
 ### Rahin Rahman rahin.rahman17@myhunter.cuny.edu
+-README and Purpose of Contract by Rahin Rahman.
+
 ### Atta Saleh atta.saleh29@myhunter.cuny.edu
+-Interface of Contract with function and event headers by Atta Saleh.
+
+### Note: Implementation of contract worked on by both members through Visual Studio Live Share.
