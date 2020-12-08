@@ -12,6 +12,9 @@ sense skip the line if they are willing to pay more and companies to maximize th
 This contract will handle the auction of the item and transactions associated with the auction.
 We will be modifying the smart contract provided in the [example](https://docs.soliditylang.org/en/v0.5.13/solidity-by-example.html#id2) provided in Solidity's documentation, to account for multiple winners of a blind auction.
 
+Our project as of 12.8.20 compiles but we are unable to deploy due to the following error:
+(Error: invalid BigNumber string (argument="value", value="", code=INVALID_ARGUMENT, version=bignumber/5.0.8))
+
 ### Individual Work Breakdown
 
 
