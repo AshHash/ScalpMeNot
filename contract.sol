@@ -15,6 +15,7 @@ contract ScalpMeNot {
     // When revealing bids ends
     uint public revealEnd;
     bool public ended;
+    // Contract is for this many hot commodity items.
     uint public totalWinners = 10;
 
     // Defines bids with key type address and value type Bid[].
@@ -125,6 +126,7 @@ contract ScalpMeNot {
         // If there are less bids than total amount of possible winners, we accept more and adjust the lowest high bid.
         if (highestBidders.length < totalWinners) {
             highestBidders.push(bidder);
+            // We check the new bid against the current lowest winning bid, and if it is lower, we replace the current lowest winning bid with the new one.
             if ( value < lowestHighBid ) {
                 lowestHighBid = value;
                 lowestHighBidder = bidder;
@@ -133,8 +135,10 @@ contract ScalpMeNot {
         }
         // If there are already enough potential winners, we replace the lowest of the high bids, and refund that bidder.
         if (highestBidders.length == totalWinners) {
+            // Checks the new bid against the lowest winning bid, if it is higher we take off the old lowest bid from the list of winners.
             if ( value > lowestHighBid ) {
                 lowestHighBid = value;
+                // Iterate through all the winners to find the new lowest winning bid.
                 for (uint i = 0; i < totalWinners; i++) {
                     if (highestBidders[i] == lowestHighBidder) {
                         pendingReturns[highestBidders[i]] += highestBidsMap[highestBidders[i]];
